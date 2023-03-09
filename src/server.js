@@ -4,6 +4,7 @@ server = express();
 
 const port = process.env.SERVER_PORT || 8080;
 
-server.get('/', (req, res) => res.send('Welcome to patient facility!'));
+// Main route
+server.use('api/v1', routes);
 
 server.listen(port, () => console.log(`Server is rinning on PORT ${port}`));
