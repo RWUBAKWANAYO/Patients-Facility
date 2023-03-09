@@ -1,10 +1,10 @@
-const patients = require('../patients.json');
 const {
 	ComputePatientDistanceToFacility,
-} = require('../services/ComputePatientDistanceToFacility');
-const ComputeScore = require('../services/ComputeScore');
-const GenerateListOfPatients = require('../services/GenerateListOfPatients');
-const NormalizeData = require('../services/NormalizeData');
+	NormalizeData,
+	ComputeScore,
+	GenerateListOfPatients,
+} = require('../services/index');
+const patients = require('../patients.json');
 
 // Creating the instances of each service
 const computePatientDistanceToFacility = new ComputePatientDistanceToFacility();
@@ -25,7 +25,10 @@ class GenerateListController {
 		const facilityLocation = { latitude: Number(latitude), longitude: Number(longitude) };
 
 		// execute computePatientDistanceToFacility
-		const patientsWithDistance = computePatientDistanceToFacility(facilityLocation, patients);
+		const patientsWithDistance = computePatientDistanceToFacility.execute(
+			facilityLocation,
+			patients
+		);
 
 		// Executing the NormalizeDataService
 		const normalizedData = normalizeData.execute(patientsWithDistance);
