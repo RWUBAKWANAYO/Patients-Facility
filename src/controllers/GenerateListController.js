@@ -2,11 +2,15 @@ const patients = require('../patients.json');
 const {
 	ComputePatientDistanceToFacility,
 } = require('../services/ComputePatientDistanceToFacility');
+const ComputeScore = require('../services/ComputeScore');
+const GenerateListOfPatients = require('../services/GenerateListOfPatients');
 const NormalizeData = require('../services/NormalizeData');
 
 // Creating the instances of each service
 const computePatientDistanceToFacility = new ComputePatientDistanceToFacility();
 const normalizeData = new NormalizeData();
+const computeScore = new ComputeScore();
+const generateListOfPatients = new GenerateListOfPatients();
 
 class GenerateListController {
 	/**
@@ -25,6 +29,14 @@ class GenerateListController {
 
 		// Executing the NormalizeDataService
 		const normalizedData = normalizeData.execute(patientsWithDistance);
+
+		// Executing the ComputeScoreService
+		const patientsWithScore = computeScore.execute(normalizedData);
+
+		// Executing the GenerateListOfPatientsService
+		const listOfPatients = generateListOfPatients.execute(patientsWithScore);
+
+		return listOfPatients;
 	}
 }
 
