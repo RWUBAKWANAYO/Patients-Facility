@@ -25,7 +25,7 @@ To run the tests, use:
 
 # API
 
-The application has only one route: `GET /v1/generate-list`
+The application has only one route: `GET /v1/patients-list`
 
 It expects two parameters:
 
@@ -34,7 +34,7 @@ It expects two parameters:
 
 For example:
 
-`/v1/generate-list?lat=-26.5030&long=-155.1633`
+`/v1/patients-list?lat=-26.5030&long=-155.1633`
 
 It will return 10 patients that will most likely attend the appointment in a facility that is located at latitude of -26.5030 and longitude of -155.1633
 
@@ -74,3 +74,23 @@ Behavior
 ## Deliverables
 
 The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+
+## Authors
+:bust_in_silhouette: **RWUBAKWANAYO**
+- GitHub: [@githubrwubakwanayo](https://github.com/RWUBAKWANAYO)
+- LinkedIn: [Rwubakwanayo](https://www.linkedin.com/in/rwubakwanayo-olivier)
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) licensed.
